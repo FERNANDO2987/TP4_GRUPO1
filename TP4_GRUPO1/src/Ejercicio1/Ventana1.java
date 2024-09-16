@@ -12,9 +12,9 @@ public class Ventana1 extends JFrame{
 	public Ventana1()
 	{
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setSize(500, 500);
-		setLocation(700, 250);
-		setTitle("Ejerciio 1");
+		setSize(400, 400);
+		setLocation(500, 250);
+		setTitle("Ejercicio 1");
 		setLayout(null);
 	}
 }
