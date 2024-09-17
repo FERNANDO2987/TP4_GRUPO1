@@ -16,7 +16,7 @@ public class Ventana2 extends JFrame {
 
 	public Ventana2()
 	{
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setSize(400, 400);
 		setLocation(500, 250);
 		setTitle("Ejercicio 2");
