@@ -65,14 +65,14 @@ public class Ventana2 extends JFrame {
         calcularButton.addActionListener(new ActionListener() {  
             @Override  
             public void actionPerformed(ActionEvent e) {  
-                //calcularPromedio();  
+                calcularPromedio();  
             }  
         });  
         add(calcularButton);  
         
         JButton nuevoButton = new JButton("NUEVO");  
         nuevoButton.setBounds(250, 100, 100, 25);  
-       // nuevoButton.addActionListener(e -> limpiarCampos());  
+        nuevoButton.addActionListener(e -> limpiarCampos());  
         add(nuevoButton);  
         
         JButton salirButton = new JButton("SALIR");  
@@ -104,8 +104,41 @@ public class Ventana2 extends JFrame {
         add(condicionField);   
     }  
 	
-	
-	
-	
+	private void calcularPromedio() {  
+        try {  
+            double nota1 = Double.parseDouble(nota1Field.getText());  
+            double nota2 = Double.parseDouble(nota2Field.getText());  
+            double nota3 = Double.parseDouble(nota3Field.getText());  
+            String tps = (String) tpsComboBox.getSelectedItem();  
+
+            double promedio = (nota1 + nota2 + nota3) / 3;  
+            String condicion;  
+
+            if (tps.equals("Desaprobado")) {  
+                condicion = "Libre";  
+            } else if (nota1 < 6 || nota2 < 6 || nota3 < 6) {  
+                condicion = "Libre";  
+            } else if (nota1 >= 8 && nota2 >= 8 && nota3 >= 8) {  
+                condicion = "Promoción";  
+            } else {  
+                condicion = "Regular";  
+            }  
+
+            promedioField.setText(String.format("%.2f", promedio));  
+            condicionField.setText(condicion);  
+        } catch (NumberFormatException e) {  
+            JOptionPane.showMessageDialog(this, "Por favor, ingrese valores numéricos válidos.", "Error", JOptionPane.ERROR_MESSAGE);  
+        }  
+    }  
+
+    private void limpiarCampos() {  
+        nota1Field.setText("");  
+        nota2Field.setText("");  
+        nota3Field.setText("");  
+        promedioField.setText("");  
+        condicionField.setText("");  
+        tpsComboBox.setSelectedIndex(0);
+    }
+
 	
 }
