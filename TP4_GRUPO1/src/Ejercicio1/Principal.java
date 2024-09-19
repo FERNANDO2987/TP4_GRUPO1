@@ -7,8 +7,6 @@ public class Principal {
 		VentanaPrincipal x = new VentanaPrincipal();
 		x.cambiarVisibilidad(true);
 		
-		Ventana2 e = new Ventana2();
-		e.setVisible(true);
 	}
 
 }
