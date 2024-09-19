@@ -2,6 +2,8 @@ package Ejercicio1;
 
 import javax.swing.JFrame;
 import javax.swing.JTextField;
+
+import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JButton;
@@ -75,11 +77,76 @@ public class Ventana1 extends JFrame{
         btnMostrar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent arg0) {
-                datos = TxtNombre.getText() + " " + TxtApellido.getText() + " " + TxtTelefono.getText() + " " + TxtFechaNacimiento.getText();
-                label.setText(datos);
+            	label.setText("");
+            	datos = TxtNombre.getText() + " " + TxtApellido.getText() + " " + TxtTelefono.getText() + " " + TxtFechaNacimiento.getText();
+            	if(validar())
+            	{
+                    label.setText(datos);
+            	}     
             }
         });
     }
+    private boolean validar()
+    {
+    	boolean flag = true;
+    	String nombre;
+    	String apellido;
+    	String telefono;
+    	String fecha;
+    	nombre = TxtNombre.getText();
+    	apellido = TxtApellido.getText();
+    	telefono = TxtTelefono.getText();
+    	fecha = TxtFechaNacimiento.getText();
+    	if(!(nombre.isEmpty() || apellido.isEmpty() || telefono.isEmpty() || fecha.isEmpty()))
+    	{
+    		TxtNombre.setBackground(new Color(255,255,255));
+    		TxtApellido.setBackground(new Color(255,255,255));
+    		TxtTelefono.setBackground(new Color(255,255,255));
+    		TxtFechaNacimiento.setBackground(new Color(255,255,255));
+    		TxtNombre.setText("");
+    		TxtApellido.setText("");
+    		TxtTelefono.setText("");
+    		TxtFechaNacimiento.setText("");	
+    	}
+    	if (nombre.isEmpty())
+    	{
+    		TxtNombre.setBackground(new Color(255,0,0));
+    		flag = false; 
+    	}
+    	else
+    	{
+    		TxtNombre.setBackground(new Color(255,255,255));
+    	}
+    	if (apellido.isEmpty())
+    	{
+    		TxtApellido.setBackground(new Color(255,0,0));
+    		flag = false; 
+    	}
+    	else 
+    	{
+    		TxtApellido.setBackground(new Color(255,255,255));
+    	}
+    	if (telefono.isEmpty())
+    	{
+    		TxtTelefono.setBackground(new Color(255,0,0));
+    		flag = false; 
+    	}
+    	else
+    	{
+    		TxtTelefono.setBackground(new Color(255,255,255));
+    	}
+    	if (fecha.isEmpty())
+    	{
+    		TxtFechaNacimiento.setBackground(new Color(255,0,0));
+    		flag = false; 
+    	}
+    	else
+    	{
+    		TxtFechaNacimiento.setBackground(new Color(255,255,255));
+    	}
+    	return flag;
+    }
 }
+	
 
 
