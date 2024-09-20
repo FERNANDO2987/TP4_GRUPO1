@@ -10,10 +10,11 @@ public class Ventana2 extends JFrame {
 	
 	
 	private static final long serialVersionUID = 1L;
-	
-	   private JTextField nota1Field, nota2Field, nota3Field;  
-	    private JComboBox<String> tpsComboBox;  
 	    private JTextField promedioField, condicionField; 
+	    private JTextField nota1Field;
+	    private JTextField nota2Field;
+	    private JTextField nota3Field;
+	    private JComboBox<String> tpsComboBox;
 
 	public Ventana2()
 	{
@@ -23,38 +24,7 @@ public class Ventana2 extends JFrame {
 		setTitle("Ejercicio 2");
 		getContentPane().setLayout(null);
         
-        JLabel nota1Label = new JLabel("Nota 1:");  
-        nota1Label.setBounds(20, 60, 100, 25);  
-        getContentPane().add(nota1Label);  
-        
-        nota1Field = new JTextField();  
-        nota1Field.setBounds(120, 60, 100, 25);  
-        getContentPane().add(nota1Field);  
-        
-        JLabel nota2Label = new JLabel("Nota 2:");  
-        nota2Label.setBounds(20, 100, 100, 25);  
-        getContentPane().add(nota2Label);  
-        
-        nota2Field = new JTextField();  
-        nota2Field.setBounds(120, 100, 100, 25);  
-        getContentPane().add(nota2Field);  
-        
-        JLabel nota3Label = new JLabel("Nota 3:");  
-        nota3Label.setBounds(20, 140, 100, 25);  
-        getContentPane().add(nota3Label);  
-        
-        nota3Field = new JTextField();  
-        nota3Field.setBounds(120, 140, 100, 25);  
-        getContentPane().add(nota3Field);  
-        
-        JLabel tpsLabel = new JLabel("TPS:");  
-        tpsLabel.setBounds(20, 180, 100, 25);  
-        getContentPane().add(tpsLabel);  
-        
         String[] opcionesTP = { "Aprobado", "Desaprobado" };
-        tpsComboBox = new JComboBox<>(opcionesTP);  
-        tpsComboBox.setBounds(120, 180, 100, 25);  
-        getContentPane().add(tpsComboBox);  
         
         JButton calcularButton = new JButton("CALCULAR");  
         calcularButton.setBounds(250, 60, 100, 25);  
@@ -76,33 +46,69 @@ public class Ventana2 extends JFrame {
         salirButton.addActionListener(e -> dispose());  
         getContentPane().add(salirButton);
         
-        JLabel promedioLabel = new JLabel("Promedio:");  
-        promedioLabel.setBounds(20, 250, 100, 25);  
-        getContentPane().add(promedioLabel);  
-        
-        promedioField = new JTextField();  
-        promedioField.setBounds(120, 250, 100, 25);  
-        promedioField.setEditable(false);  
-        getContentPane().add(promedioField);  
-        
-        JLabel condicionLabel = new JLabel("Condición:");  
-        condicionLabel.setBounds(20, 280, 100, 25);  
-        getContentPane().add(condicionLabel);  
-        
-        condicionField = new JTextField();  
-        condicionField.setBounds(120, 280, 100, 25);  
-        condicionField.setEditable(false);  
-        getContentPane().add(condicionField);   
-        
         JPanel groupBoxTop = new JPanel();
         groupBoxTop.setBorder(new TitledBorder(null, "Notas del estudiante", TitledBorder.LEADING, TitledBorder.TOP, null, null));
         groupBoxTop.setBounds(12, 32, 228, 190);
         getContentPane().add(groupBoxTop);
+        groupBoxTop.setLayout(null);
         
         JPanel groupBoxDown = new JPanel();
         groupBoxDown.setBorder(new TitledBorder(null, "Notas del estudiante", TitledBorder.LEADING, TitledBorder.TOP, null, null));
-        groupBoxDown.setBounds(12, 229, 228, 87);
+        groupBoxDown.setBounds(12, 229, 228, 93);
         getContentPane().add(groupBoxDown);
+        groupBoxDown.setLayout(null);
+        
+        JLabel promedioLabel = new JLabel("Promedio:");
+        promedioLabel.setBounds(12, 49, 100, 25);
+        groupBoxDown.add(promedioLabel);
+        
+        promedioField = new JTextField();
+        promedioField.setBounds(107, 13, 100, 25);
+        groupBoxDown.add(promedioField);
+        promedioField.setEditable(false);
+        
+        JLabel condicionLabel = new JLabel("Condición:");
+        condicionLabel.setBounds(12, 13, 100, 25);
+        groupBoxDown.add(condicionLabel);
+        
+        condicionField = new JTextField();
+        condicionField.setBounds(107, 49, 100, 25);
+        groupBoxDown.add(condicionField);
+        condicionField.setEditable(false);
+        
+        JLabel label = new JLabel("Nota 1:");
+        label.setBounds(12, 26, 42, 16);
+        groupBoxTop.add(label);
+        
+        JLabel label_1 = new JLabel("Nota 2:");
+        label_1.setBounds(12, 65, 58, 25);
+        groupBoxTop.add(label_1);
+        
+        nota1Field = new JTextField();
+        nota1Field.setBounds(107, 67, 100, 25);
+        groupBoxTop.add(nota1Field);
+        
+        JLabel label_2 = new JLabel("Nota 3:");
+        label_2.setBounds(12, 108, 55, 25);
+        groupBoxTop.add(label_2);
+        
+        nota2Field = new JTextField();
+        nota2Field.setBounds(107, 111, 100, 25);
+        groupBoxTop.add(nota2Field);
+        
+        JLabel label_3 = new JLabel("TPS:");
+        label_3.setBounds(12, 152, 100, 25);
+        groupBoxTop.add(label_3);
+        
+        nota3Field = new JTextField();
+        nota3Field.setBounds(105, 22, 100, 25);
+        groupBoxTop.add(nota3Field);
+        
+        tpsComboBox = new JComboBox<>(opcionesTP);
+        tpsComboBox.setBounds(107, 149, 100, 25);
+        groupBoxTop.add(tpsComboBox);
+        
+        
     }  
 	
 	private void calcularPromedio() {  
