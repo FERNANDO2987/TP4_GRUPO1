@@ -7,6 +7,13 @@ import javax.swing.JRadioButton;
 import javax.swing.JPanel;
 import javax.swing.border.LineBorder;
 import java.awt.Color;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+import java.awt.Insets;
+
+import javax.swing.*;   
+import java.awt.event.ActionEvent;  
+import java.awt.event.ActionListener;  
 
 public class Ventana3 extends JFrame{
 
@@ -44,6 +51,43 @@ public class Ventana3 extends JFrame{
 		group.add(rdbtnLinux);
 		group.add(rdbtnMac);
 		group.add(rdbtnWindows);
+		
+		// Segundo panel para seleccionar especialidades  
+        JPanel panelEspecialidad = new JPanel();  
+        panelEspecialidad.setBorder(new LineBorder(new Color(0, 0, 0)));  
+        panelEspecialidad.setBounds(12, 100, 408, 120);  
+        getContentPane().add(panelEspecialidad);  
+        
+        // Usar GridBagLayout para alinear los JCheckBox  
+        panelEspecialidad.setLayout(new GridBagLayout());  
+        GridBagConstraints gbc = new GridBagConstraints();  
+        gbc.insets = new Insets(5, 5, 5, 5); 
+
+        JLabel lblEligeEspecialidad = new JLabel("Elige una especialidad:");  
+        gbc.gridx = 0;  
+        gbc.gridy = 2;  
+        gbc.anchor = GridBagConstraints.CENTER;  
+        panelEspecialidad.add(lblEligeEspecialidad, gbc);  
+
+        JCheckBox chkProgramacion = new JCheckBox("Programación");  
+        gbc.gridx = 1;  
+        gbc.gridy = 1;  
+        gbc.anchor = GridBagConstraints.WEST;  
+        panelEspecialidad.add(chkProgramacion, gbc);  
+
+        JCheckBox chkAdministracion = new JCheckBox("Administración");  
+        gbc.gridx = 1;  
+        gbc.gridy = 2;  
+        gbc.anchor = GridBagConstraints.WEST; 
+        panelEspecialidad.add(chkAdministracion, gbc);  
+
+        JCheckBox chkDisenoGrafico = new JCheckBox("Diseño Gráfico");  
+        gbc.gridx = 1;  
+        gbc.gridy = 3;  
+        gbc.anchor = GridBagConstraints.WEST;  
+        panelEspecialidad.add(chkDisenoGrafico, gbc);  
+
+      
 	  
     } 
 }
