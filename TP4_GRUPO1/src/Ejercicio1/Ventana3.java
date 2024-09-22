@@ -87,7 +87,20 @@ public class Ventana3 extends JFrame{
         gbc.anchor = GridBagConstraints.WEST;  
         panelEspecialidad.add(chkDisenoGrafico, gbc);  
 
-      
-	  
+        // campo de texto para ingresar horas  
+        JLabel lblHoras = new JLabel("Cantidad de horas en el computador:");  
+        lblHoras.setBounds(12, 230, 250, 25);  
+        getContentPane().add(lblHoras);  
+
+        JTextField txtHoras = new JTextField();  
+        txtHoras.setBounds(250, 230, 100, 25);  
+        getContentPane().add(txtHoras);  
+
+        //Boton Aceptar  
+        JButton btnAceptar = new JButton("Aceptar");  
+        btnAceptar.setBounds(250, 260, 100, 25);  
+        getContentPane().add(btnAceptar);  
+
+        
     } 
 }
