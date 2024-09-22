@@ -101,6 +101,35 @@ public class Ventana3 extends JFrame{
         btnAceptar.setBounds(250, 260, 100, 25);  
         getContentPane().add(btnAceptar);  
 
-        
+        btnAceptar.addActionListener(new ActionListener() {  
+            @Override  
+            public void actionPerformed(ActionEvent e) {  
+                String sistemaOperativo = null;  
+                if (rdbtnMac.isSelected()) {  
+                    sistemaOperativo = "Mac";  
+                } else if (rdbtnLinux.isSelected()) {  
+                    sistemaOperativo = "Linux";  
+                } else if (rdbtnWindows.isSelected()) {  
+                    sistemaOperativo = "Windows";  
+                }  
+
+                String especialidades = "";  
+                if (chkProgramacion.isSelected()) {  
+                    especialidades += "Programación ";  
+                }  
+                if (chkAdministracion.isSelected()) {  
+                    especialidades += "Administración ";  
+                }  
+                if (chkDisenoGrafico.isSelected()) {  
+                    especialidades += "Diseño Gráfico ";  
+                }  
+
+                String horas = txtHoras.getText();  
+
+                String mensaje = sistemaOperativo +"-"+especialidades +"-" + horas;  
+
+                JOptionPane.showMessageDialog(Ventana3.this, mensaje);
+            }
+        });
     } 
 }
